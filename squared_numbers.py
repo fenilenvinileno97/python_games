@@ -1,10 +1,6 @@
+#create a squared-number list from 1 to 100
 def run():
-    natural_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    squared = 0
-
-    for i in natural_nums:
-        squared = i**2
-        print(squared)
-
+    list_comprehension = [i**2 for i in range(1,101) if i % 3 != 0]
+    print(list_comprehension)
 if __name__ == '__main__':
     run() 
