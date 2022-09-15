@@ -1,9 +1,6 @@
 """
 Program for check divisibility 
 """
-from multiprocessing.sharedctypes import Value
-
-
 def divisors(num):
     divisors = []
     for i in range(1, num+1):

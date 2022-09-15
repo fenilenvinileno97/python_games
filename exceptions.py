@@ -1,6 +1,3 @@
-from multiprocessing.sharedctypes import Value
-
-
 def palindrome(string):
     try:
         if len(string) == 0:
