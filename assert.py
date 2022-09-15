@@ -1,5 +1,11 @@
-def palindrome(string):
-    assert len(string) > 0, "It can't be entered an empty string"
-    return string == string[::-1]
+def divisors(num):
+    divisors = [i for i in range(1, num+1) if num % i == 0]
+    return divisors #after for cycle, divisors is appended
 
-print(palindrome(""))
+def run():
+    num = (input('Enter a number: '))
+    assert num.isnumeric(), 'You should enter a valid quantity'
+    print(divisors(int(num)))
+    print('Program has ended')
+if __name__ == '__main__':
+    run()
