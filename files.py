@@ -1,5 +1,5 @@
 def read():
-    pass
+    numbers = []
 
 def write():
     pass
