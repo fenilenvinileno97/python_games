@@ -1,3 +1,4 @@
+from functools import reduce
 import random
 import os
 
@@ -7,7 +8,6 @@ def read_data(filepath = './files/data.txt'):
         for line in f:
             words.append(line.strip().upper())
     return words
-
 
 def run():
     
@@ -31,8 +31,13 @@ def run():
             for index in letter_index_dict[letter]:
                 chosen_word_list_underscores[index] = letter
                 
-        print(chosen_word_list_underscores)
-    
+        underscores = ' '.join(map(str, chosen_word_list_underscores))
+        print(underscores)
+        print('\n')
+
+
+        #we should create a cycle for finding '_' remaining in chosen_word_list_underscores and if this value is false, program is ended
+        #afterwards, os library functions should be implemented.
     
 if __name__ == '__main__':
     run()
