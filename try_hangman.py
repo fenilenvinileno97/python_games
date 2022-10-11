@@ -9,6 +9,13 @@ def read_data(filepath = './files/data.txt'):
             words.append(line.strip().upper())
     return words
 
+# def check_true(iterable):
+#     for item in iterable:
+#         if not item:
+#             return False
+#         return True
+        
+
 def run():
     
     data = read_data(filepath = './files/data.txt')
@@ -34,7 +41,11 @@ def run():
         underscores = ' '.join(map(str, chosen_word_list_underscores))
         print(underscores)
         print('\n')
-
+    
+        for item in underscores:
+            if not item == '_':
+                return False
+        
 
         #we should create a cycle for finding '_' remaining in chosen_word_list_underscores and if this value is false, program is ended
         #afterwards, os library functions should be implemented.
