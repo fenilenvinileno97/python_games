@@ -1,4 +1,3 @@
-from functools import reduce
 import random
 import os
 
@@ -9,12 +8,17 @@ def read_data(filepath = './files/data.txt'):
             words.append(line.strip().upper())
     return words
 
-# def check_true(iterable):
-#     for item in iterable:
-#         if not item:
-#             return False
-#         return True
-        
+def normalize(s): # It removes the accents of a string
+    replacements = (
+        ("á", "a"),
+        ("é", "e"),
+        ("í", "i"),
+        ("ó", "o"),
+        ("ú", "u"),
+        )
+    for a, b in replacements:
+        s = s.replace(a, b).replace(a.upper(), b.upper())
+    return s
 
 def run():
     
@@ -31,7 +35,7 @@ def run():
 
     while True:
     
-        letter = input('Enter a letter: ').strip().upper()
+        letter = normalize(input('Enter a letter: ').strip().upper())
         assert letter.isalpha(), 'Just can enter letters!'
     
         if letter in chosen_word_list:
@@ -41,14 +45,14 @@ def run():
         underscores = ' '.join(map(str, chosen_word_list_underscores))
         print(underscores)
         print('\n')
-    
-        for item in underscores:
-            if not item == '_':
-                return False
         
-
-        #we should create a cycle for finding '_' remaining in chosen_word_list_underscores and if this value is false, program is ended
-        #afterwards, os library functions should be implemented.
+        remaining_underscore = '_'
+        if not remaining_underscore in chosen_word_list_underscores:
+            os.system('clear')
+            print('You have won!, correct word was', chosen_word)
+            break
+        
+        
     
 if __name__ == '__main__':
     run()
